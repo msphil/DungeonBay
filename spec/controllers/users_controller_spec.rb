@@ -7,6 +7,8 @@ describe UsersController do
 
     before(:each) do
       @user = Factory(:user)
+      @campaign = Factory(:campaign, :user => @user)
+      @character = Factory(:character, :user => @user, :campaign => @campaign)
     end
 
     it "should be successful" do
@@ -35,12 +37,12 @@ describe UsersController do
     #   response.should have_selector("h1>img", :class => "profilepic")
     # end
 
-    it "should show the user's items" do
-      it1 = Factory(:item, :user => @user, :description => "Item 1")
-      it2 = Factory(:item, :user => @user, :description => "Item 2")
+    it "should show the user's characters" do
+      ch1 = Factory(:character, :user => @user, :description => "Character 1", :campaign_id => @campaign.id)
+      ch2 = Factory(:character, :user => @user, :description => "Character 2", :campaign_id => @campaign.id)
       get :show, :id => @user
-      response.should have_selector("span.description", :content => it1.description)
-      response.should have_selector("span.description", :content => it2.description)
+      response.should have_selector("span.description", :content => ch1.description)
+      response.should have_selector("span.description", :content => ch2.description)
     end
 
   end

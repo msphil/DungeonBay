@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @items = @user.items.paginate(:page => params[:page])
+    @characters = @user.characters.paginate(:page => params[:page])
     @title = @user.name
   end
 

@@ -4,17 +4,17 @@
       <h1>
         <%= @user.name %>
       </h1>
-      <% unless @user.items.empty? %>
-        <table class="items" summary="User items">
-          <%= render @items %>
+      <% unless @user.characters.empty? %>
+        <table class="characters" summary="User characters">
+          <%= render @characters %>
         </table>
-        <%= will_paginate @items %>
+        <%= will_paginate @characters %>
       <% end %>
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />
       <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
-      <strong>Items</strong> <%= @user.items.count %>
+      <strong>Characters</strong> <%= @user.characters.count %>
     </td>
   </tr>
 </table>

@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410072219) do
+ActiveRecord::Schema.define(:version => 20120411202729) do
+
+  create_table "campaigns", :force => true do |t|
+    t.integer  "owner_id"
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "campaigns", ["owner_id"], :name => "index_campaigns_on_owner_id"
+
+  create_table "characters", :force => true do |t|
+    t.integer  "owner_id"
+    t.integer  "campaign_id"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "gold"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "characters", ["name"], :name => "index_characters_on_name"
+  add_index "characters", ["owner_id", "campaign_id"], :name => "index_characters_on_owner_id_and_campaign_id"
 
   create_table "items", :force => true do |t|
     t.integer  "creator_id"
@@ -21,11 +44,22 @@ ActiveRecord::Schema.define(:version => 20120410072219) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "items", ["creator_id"], :name => "index_items_on_creator_id"
   add_index "items", ["description"], :name => "index_items_on_description"
   add_index "items", ["owner_id", "campaign_id"], :name => "index_items_on_owner_id_and_campaign_id"
+
+  create_table "memberships", :force => true do |t|
+    t.integer  "character_id"
+    t.integer  "campaign_id"
+    t.boolean  "gm"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "memberships", ["character_id", "campaign_id"], :name => "index_memberships_on_character_id_and_campaign_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
