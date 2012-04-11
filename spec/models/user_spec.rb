@@ -147,6 +147,26 @@ describe User do
 
   end
 
+  describe "item associations" do
 
+    before(:each) do
+      @user = User.create(@attr)
+      @it1 = Factory(:item, :user => @user)
+      @it2 = Factory(:item, :user => @user)
+      "${@user.id}"
+    end
+
+    it "should have a items attribute" do
+      @user.should respond_to(:items)
+    end
+
+    it "should destroy associated items" do
+      @user.destroy
+      [@it1, @it2].each do |item|
+        Item.find_by_id(item.id).should be_nil
+      end
+    end
+
+  end
 
 end

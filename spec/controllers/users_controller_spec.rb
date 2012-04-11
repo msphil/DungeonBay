@@ -35,6 +35,14 @@ describe UsersController do
     #   response.should have_selector("h1>img", :class => "profilepic")
     # end
 
+    it "should show the user's items" do
+      it1 = Factory(:item, :user => @user, :description => "Item 1")
+      it2 = Factory(:item, :user => @user, :description => "Item 2")
+      get :show, :id => @user
+      response.should have_selector("span.description", :content => it1.description)
+      response.should have_selector("span.description", :content => it2.description)
+    end
+
   end
 
   describe "GET 'new'" do

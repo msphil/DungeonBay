@@ -13,3 +13,8 @@ end
 Factory.sequence :email do |n|
   "person-#{n}@example.com"
 end
+
+Factory.define :item do |item|
+  item.description "This is a cool item!"
+  item.association :user
+end

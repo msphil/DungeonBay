@@ -1,7 +1,28 @@
-<h1>DungeonBay</h1>
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        [Item creation (temporary)]<br />
+        <h1 class="item">New item?</h1>
+        <%= render 'shared/item_form' %>
+        <br />[end item creation]
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
 
-<p>This is the home page for DungeonBay.</p>
+  <p>[Item Search goes here]</p>
 
-<p>[Item Search goes here]</p>
 
-<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+
+
+
+  <h1>DungeonBay</h1>
+
+  <p>This is the home page for DungeonBay.</p>
+
+  <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>
