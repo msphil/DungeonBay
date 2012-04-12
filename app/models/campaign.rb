@@ -15,4 +15,6 @@ class Campaign < ActiveRecord::Base
   has_many :characters, :dependent => :destroy
 
   belongs_to :user, :foreign_key => "owner_id"
+
+  default_scope :order => 'campaigns.name ASC'
 end

@@ -6,11 +6,13 @@
       </h1>
       <% unless @campaigns.empty? %>
         <table class="campaigns" summary="User campaigns">
+          <th>Campaigns</th>
           <%= render @campaigns %>
         </table>
       <% end %>
       <% unless @user.characters.empty? %>
         <table class="characters" summary="User characters">
+          <th>Characters</th>
           <%= render @characters %>
         </table>
         <%= will_paginate @characters %>
@@ -20,7 +22,10 @@
       <strong>Name</strong> <%= @user.name %><br />
       <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
       <strong>Characters</strong> <%= @user.characters.count %><br/>
-      <%= link_to "Create a campaign", newcampaign_path, :class => "createcampaign_button round" %>
+      <% if signed_in? %>
+        <%= link_to "Create a campaign", newcampaign_path, :class => "createcampaign_button round" %><br />
+        <%= link_to "Create a character", newcharacter_path, :class => "createcharacter_button round" %>
+      <% end %>
     </td>
   </tr>
 </table>

@@ -24,5 +24,7 @@ class Character < ActiveRecord::Base
 
   validates :owner_id, :presence => true
 
+  default_scope :order => 'characters.name ASC'
+
 end
 

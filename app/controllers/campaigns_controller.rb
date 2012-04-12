@@ -5,11 +5,9 @@ class CampaignsController < ApplicationController
     u = current_user
     @title = "Create campaign"
     @campaign = u.campaigns.new
-    flash[:debug] = @campaign.to_s
   end
 
   def create
-    flash[:debug] = "Create goes here!"
     @campaign = Campaign.new(params[:campaign])
     @campaign.owner_id = current_user.id
     if @campaign.save

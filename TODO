@@ -8,4 +8,13 @@ Ability to create items within the campaign
 
 Auctions, offers
 
+Create a demo database population task
+
+Update dev. database task to use more Faker and less Lorem.
+
+
+Security:
+Evaluate where authentication is still needed
+Evaluate where actions can be restricted
+Evaluate authorization model
 
