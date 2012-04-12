@@ -93,6 +93,19 @@ a.signup_button {
   padding: 20px;
 }
 
+/* Campaign create button, forked from above */
+a.createcampaign_button {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 120px;
+  color: #fff;
+  background: #006400;
+  /*font-size: 100%;*/
+  font-weight: bold;
+  padding: 10px;
+}
 /* Round corners */
 
 .round {

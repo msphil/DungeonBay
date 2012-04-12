@@ -4,6 +4,11 @@
       <h1>
         <%= @user.name %>
       </h1>
+      <% unless @campaigns.empty? %>
+        <table class="campaigns" summary="User campaigns">
+          <%= render @campaigns %>
+        </table>
+      <% end %>
       <% unless @user.characters.empty? %>
         <table class="characters" summary="User characters">
           <%= render @characters %>
@@ -14,7 +19,8 @@
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />
       <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
-      <strong>Characters</strong> <%= @user.characters.count %>
+      <strong>Characters</strong> <%= @user.characters.count %><br/>
+      <%= link_to "Create a campaign", newcampaign_path, :class => "createcampaign_button round" %>
     </td>
   </tr>
 </table>

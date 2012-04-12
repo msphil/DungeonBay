@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @characters = @user.characters.paginate(:page => params[:page])
+    @campaigns = @user.campaigns
     @title = @user.name
   end
 
