@@ -239,3 +239,7 @@ form.new_item textarea {
 
 
 
+/* debug flash */
+.debug {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
+.debug {background:#d5edf8;color:#205791;border-color:#92cae4;}
+.debug a {color:#205791;}
