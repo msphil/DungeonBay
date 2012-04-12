@@ -1,6 +1,11 @@
 TODO:
 
+= Appearance =
+
 Better web pages
+Nicer styles
+
+= Functionality =
 
 Ability to add characters to campaigns
 Ability to promote characters to GM
@@ -8,12 +13,12 @@ Ability to create items within the campaign
 
 Auctions, offers
 
+= Development support =
+
 Create a demo database population task
+Update dev. database task to use more Faker (e.g. names) and less Lorem.
 
-Update dev. database task to use more Faker and less Lorem.
-
-
-Security:
+= Security =
 Evaluate where authentication is still needed
 Evaluate where actions can be restricted
 Evaluate authorization model
