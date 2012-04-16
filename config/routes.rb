@@ -7,6 +7,7 @@ DungeonBay::Application.routes.draw do
   resources :characters#, :only => [:new, :create, :edit]#, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :items,    :only => [:create, :destroy]
+  resources :auctions, :only => [:create, :destroy]
 
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'

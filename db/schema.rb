@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411202729) do
+ActiveRecord::Schema.define(:version => 20120416061823) do
+
+  create_table "auctions", :force => true do |t|
+    t.integer  "creator_id"
+    t.integer  "item_id"
+    t.string   "description"
+    t.integer  "open_bid"
+    t.integer  "buyout_price"
+    t.datetime "expires"
+    t.integer  "current_bid"
+    t.integer  "bidder_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "auctions", ["creator_id", "item_id"], :name => "index_auctions_on_creator_id_and_item_id"
+  add_index "auctions", ["current_bid", "bidder_id"], :name => "index_auctions_on_current_bid_and_bidder_id"
+  add_index "auctions", ["expires"], :name => "index_auctions_on_expires"
 
   create_table "campaigns", :force => true do |t|
     t.integer  "owner_id"

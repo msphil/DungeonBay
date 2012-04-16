@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   has_many :characters, :dependent => :destroy, :foreign_key => "owner_id"
   has_many :campaigns, :dependent => :destroy, :foreign_key => "owner_id"
+  has_many :auctions, :dependent => :destroy, :foreign_key => "creator_id"
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

@@ -1,17 +1,3 @@
-# == Schema Information
-#
-# Table name: items
-#
-#  id          :integer         not null, primary key
-#  creator_id  :integer
-#  owner_id    :integer
-#  campaign_id :integer
-#  image_url   :string(255)
-#  description :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#
-
 require 'spec_helper'
 
 describe Item do
@@ -66,4 +52,20 @@ describe Item do
   end
 
 end
+
+
+# == Schema Information
+#
+# Table name: items
+#
+#  id          :integer         not null, primary key
+#  creator_id  :integer
+#  owner_id    :integer
+#  campaign_id :integer
+#  image_url   :string(255)
+#  description :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#  name        :string(255)
+#
 

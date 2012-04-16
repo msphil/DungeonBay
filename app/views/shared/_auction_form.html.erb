@@ -1,0 +1,17 @@
+<%= form_for @auction do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="field">
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :open_bid %><br />
+    <%= f.text_field :open_bid %>
+  </div>
+  <div class="field">
+    <%= f.label :buyout_price %><br />
+    <%= f.text_field :buyout_price %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

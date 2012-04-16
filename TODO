@@ -5,13 +5,36 @@ TODO:
 Better web pages
 Nicer styles
 
+== Auctions == 
+
+[This branch]
+Create an auction
+
+== Offers ==
+
+Create an offer
+Accept/reject an offer
+
+
 = Functionality =
 
-Ability to add characters to campaigns
-Ability to promote characters to GM
+Ability to add characters to campaigns (note: can be active, similar to follow functionality)
+Ability to promote characters to GM (note: can be active, similar to follow functionality)
+Ability to demote characters from GM (note: can be active, similar to follow functionality)
 Ability to create items within the campaign
 
-Auctions, offers
+Ability to browse items by character (and make an offer)
+Ability to browse characters by campaign
+Ability to browse campaigns
+
+On sign-in, choose a character or a campaign.
+  * Campaign owners can choose a campaign.  Everyone else chooses a character.
+  * Non-owner GMs choose a GM-capable character.
+  * Character/campaign stored in cookies along with login?
+
+Note: no ability to remove characters from campaigns until we decide what to do with the items...
+
+On sign-in, view pending offers, accept/reject.
 
 = Development support =
 
@@ -19,6 +42,7 @@ Create a demo database population task
 Update dev. database task to use more Faker (e.g. names) and less Lorem.
 
 = Security =
+
 Evaluate where authentication is still needed
 Evaluate where actions can be restricted
 Evaluate authorization model
