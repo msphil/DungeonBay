@@ -7,13 +7,13 @@ Nicer styles
 
 == Auctions == 
 
-[This branch]
-Create an auction
+Interface to create auctions
+Interface to view auctions
 
 == Offers ==
 
-Create an offer
-Accept/reject an offer
+Create an offer [Delayed until after demonstration]
+Accept/reject an offer [Delayed until after demonstration]
 
 
 = Functionality =
@@ -34,7 +34,7 @@ On sign-in, choose a character or a campaign.
 
 Note: no ability to remove characters from campaigns until we decide what to do with the items...
 
-On sign-in, view pending offers, accept/reject.
+On sign-in, view pending offers, accept/reject.  [Delayed until after demonstration]
 
 = Development support =
 
