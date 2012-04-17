@@ -11,38 +11,72 @@ describe UsersController do
       @character = Factory(:character, :user => @user, :campaign => @campaign)
     end
 
-    it "should be successful" do
-      get :show, :id => @user
-      response.should be_success
+    describe "when signed out" do
+
+      it "should be successful" do
+        get :show, :id => @user
+        response.should be_success
+      end
+
+      it "should find the right user" do
+        get :show, :id => @user
+        assigns(:user).should == @user
+      end
+
+      it "should have the right title" do
+        get :new
+        response.should have_selector("title", :content => "Sign up")
+      end
+
+      it "should include the user's name" do
+        get :show, :id => @user
+        response.should have_selector("h1", :content => @user.name)
+      end
+
+      it "should show the user's characters" do
+        ch1 = Factory(:character, :user => @user, :description => "Character 1", :campaign_id => @campaign.id)
+        ch2 = Factory(:character, :user => @user, :description => "Character 2", :campaign_id => @campaign.id)
+        get :show, :id => @user
+        response.should have_selector("span.description", :content => ch1.description)
+        response.should have_selector("span.description", :content => ch2.description)
+      end
+
     end
 
-    it "should find the right user" do
-      get :show, :id => @user
-      assigns(:user).should == @user
-    end
+    describe "when signed in" do
 
-    it "should have the right title" do
-      get 'new'
-      response.should have_selector("title", :content => "Sign up")
-    end
+      before(:each) do
+        test_sign_in(@user)
+      end
 
-    it "should include the user's name" do
-      get :show, :id => @user
-      response.should have_selector("h1", :content => @user.name)
-    end
+      it "should be successful" do
+        get :show, :id => @user
+        response.should be_success
+      end
 
-    # insert a test for profile images later, e.g.
-    # it "should have a profile image" do
-    #   get :show, :id => @user
-    #   response.should have_selector("h1>img", :class => "profilepic")
-    # end
+      it "should find the right user" do
+        get :show, :id => @user
+        assigns(:user).should == @user
+      end
 
-    it "should show the user's characters" do
-      ch1 = Factory(:character, :user => @user, :description => "Character 1", :campaign_id => @campaign.id)
-      ch2 = Factory(:character, :user => @user, :description => "Character 2", :campaign_id => @campaign.id)
-      get :show, :id => @user
-      response.should have_selector("span.description", :content => ch1.description)
-      response.should have_selector("span.description", :content => ch2.description)
+      it "should have the right title" do
+        get :new
+        response.should have_selector("title", :content => "Sign up")
+      end
+
+      it "should include the user's name" do
+        get :show, :id => @user
+        response.should have_selector("h1", :content => @user.name)
+      end
+
+      it "should show the user's characters" do
+        ch1 = Factory(:character, :user => @user, :description => "Character 1", :campaign_id => @campaign.id)
+        ch2 = Factory(:character, :user => @user, :description => "Character 2", :campaign_id => @campaign.id)
+        get :show, :id => @user
+        response.should have_selector("span.description", :content => ch1.description)
+        response.should have_selector("span.description", :content => ch2.description)
+      end
+
     end
 
   end

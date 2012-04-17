@@ -3,7 +3,15 @@
     <span class="portrait"><img src="<%= character.img_url %>" /></span><br />
     <span class="name"><%= link_to character.name, character %></span><br />
     <span class="description"><%= character.description %></span><br />
-    <span class="campaign"><strong>Campaign:</strong> <%= character.campaign_name %></span>
-    <!--<span class="timestamp">Posted <%= time_ago_in_words(character.created_at) %> ago.</span>-->
+    <% unless @skip_campaign_name %>
+      <span class="campaign"><strong>Campaign:</strong> <%= character.campaign_name %></span>
+    <% end %>
   </td>
 </tr>
+<% if @on_campaign_page %>
+<tr>
+  <td class="edit">
+    GM edit buttons will go here
+  </td>
+</tr>
+<% end %>
