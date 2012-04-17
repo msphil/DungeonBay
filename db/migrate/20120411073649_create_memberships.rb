@@ -8,7 +8,7 @@ class CreateMemberships < ActiveRecord::Migration
     end
     add_column :memberships, :gm, :boolean, :default => false
     add_index :memberships, [:character_id, :campaign_id]
-    add_index :memberships, :character_id, :campaign_id
+    add_index :memberships, :character_id
     add_index :memberships, :campaign_id
   end
 
