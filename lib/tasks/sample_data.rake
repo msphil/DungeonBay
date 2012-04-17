@@ -15,8 +15,8 @@ namespace :db do
                    :password => password,
                    :password_confirmation => password)
     end
-    Campaign.create!(:name => "Example Campaign", 
-                     :description => "This is a cool example campaign",
+    Campaign.create!(:name => "Darokin", 
+                     :description => "Wild adventures along the river Streel!",
                      :owner_id => 1,
                      :img_url => "http://www.icculus.org/~msphil/dbay/campaigns/campaign-1.png")
     user = User.find_by_id(1)

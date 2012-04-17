@@ -30,10 +30,11 @@ class Character < ActiveRecord::Base
     c_id = self.campaign_id
     if (c_id != 0)
       c = Campaign.find_by_id(self.campaign_id)
-      return c.name
-    else
-      return "[No campaign]"
+      unless c.nil? 
+        return c.name
+      end
     end
+    return "[No campaign]"
   end
 
 end
