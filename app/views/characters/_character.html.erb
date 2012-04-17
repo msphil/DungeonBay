@@ -1,11 +1,9 @@
 <tr>
   <td class="character">
-    <span class="name"><%= character.name %></span>
-    <span class="description"><%= character.description %></span>
-    <%= character.id %>
-    <span class="campaign">< %= character.campaign.name %></span>
-    <span class="timestamp">
-      Posted <%= time_ago_in_words(character.created_at) %> ago.
-    </span>
+    <span class="portrait"><img src="<%= character.img_url %>" /></span><br />
+    <span class="name"><%= link_to character.name, character %></span><br />
+    <span class="description"><%= character.description %></span><br />
+    <span class="campaign"><strong>Campaign:</strong> <%= character.campaign_name %></span>
+    <!--<span class="timestamp">Posted <%= time_ago_in_words(character.created_at) %> ago.</span>-->
   </td>
 </tr>

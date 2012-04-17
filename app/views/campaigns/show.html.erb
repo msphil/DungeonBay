@@ -1,0 +1,33 @@
+<table class="campaign-profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1><%= @campaign.name %></h1>
+      <table class="campaign-summary" summary="Campaign information">
+        <tr>
+          <td>
+            <img src="<%= @campaign.img_url %>" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= @campaign.description %>
+          </td>
+        </tr>
+        <% if signed_in? %>
+          <% if current_user.id == @campaign.owner_id %>
+            <tr>
+              <td>
+                <%= link_to "Edit campaign", edit_campaign_path(@campaign) %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @campaign.name %><br />
+      <strong>URL</strong>  <%= link_to campaign_path(@campaign), @campaign %><br />
+      <strong>User</strong>  < %= link_to user_path(@campaign.owner), @campaign.owner %><br />
+    </td>
+  </tr>
+</table>

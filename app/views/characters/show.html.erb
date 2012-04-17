@@ -1,0 +1,31 @@
+<table class="character-profile" summary="Profile information">
+  <tr>
+    <td class="main">
+      <h1><%= @character.name %></h1>
+      <table class="character-summary" summary="Character information">
+        <tr>
+          <td>
+            <img src="<%= @character.img_url %>" />
+          </td>
+          <td>
+            <%= @character.description %>
+          </td>
+        </tr>
+        <% if signed_in? %>
+          <% if current_user.id == @character.owner_id %>
+            <tr>
+              <td>
+                <%= link_to "Edit character", edit_character_path(@character) %>
+              </td>
+            </tr>
+          <% end %>
+        <% end %>
+      </table>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @character.name %><br />
+      <strong>URL</strong>  <%= link_to character_path(@character), @character %><br />
+      <strong>User</strong>  < %= link_to user_path(@character.owner), @character.owner %><br />
+    </td>
+  </tr>
+</table>

@@ -1,4 +1,4 @@
-<h1>Create a Character</h1>
+<h1>Edit character</h1>
 
 <%= form_for(@character) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
@@ -7,14 +7,15 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
     <%= f.label :img_url %><br />
     <%= f.text_field :img_url %>
   </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
   <div class="actions">
-    <%= f.submit "Create!" %>
+    <%= f.submit "Update" %>
   </div>
 <% end %>
+

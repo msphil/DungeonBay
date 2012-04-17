@@ -13,7 +13,7 @@
 #
 
 class Character < ActiveRecord::Base
-  attr_accessible :name, :description#, :image_url
+  attr_accessible :name, :description, :image_url
 
   validates :name, :presence => true, :length => { :within => 1..50 }
   validates :description, :presence => true, :length => { :maximum => 1023 }
@@ -25,6 +25,16 @@ class Character < ActiveRecord::Base
   validates :owner_id, :presence => true
 
   default_scope :order => 'characters.name ASC'
+
+  def campaign_name
+    c_id = self.campaign_id
+    if (c_id != 0)
+      c = Campaign.find_by_id(self.campaign_id)
+      return c.name
+    else
+      return "[No campaign]"
+    end
+  end
 
 end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120416061823) do
+ActiveRecord::Schema.define(:version => 20120416193230) do
 
   create_table "auctions", :force => true do |t|
     t.integer  "creator_id"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20120416061823) do
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "img_url"
   end
 
   add_index "campaigns", ["owner_id"], :name => "index_campaigns_on_owner_id"
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20120416061823) do
     t.integer  "gold"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "img_url"
   end
 
   add_index "characters", ["name"], :name => "index_characters_on_name"

@@ -15,7 +15,6 @@ Interface to view auctions
 Create an offer [Delayed until after demonstration]
 Accept/reject an offer [Delayed until after demonstration]
 
-
 = Functionality =
 
 Ability to add characters to campaigns (note: can be active, similar to follow functionality)
@@ -23,7 +22,8 @@ Ability to promote characters to GM (note: can be active, similar to follow func
 Ability to demote characters from GM (note: can be active, similar to follow functionality)
 Ability to create items within the campaign
 
-Ability to browse items by character (and make an offer)
+Ability to browse items by character
+    (and make an offer) [Delayed until after demonstration]
 Ability to browse characters by campaign
 Ability to browse campaigns
 

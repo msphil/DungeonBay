@@ -17,13 +17,15 @@ namespace :db do
     end
     Campaign.create!(:name => "Example Campaign", 
                      :description => "This is a cool example campaign",
-                     :owner_id => 1)
+                     :owner_id => 1,
+                     :img_url => "http://www.icculus.org/~msphil/dbay/campaigns/campaign-1.png")
     user = User.find_by_id(1)
-    2.times do
+    2.times do |i|
       word = Faker::Lorem.words(2)
       campaign = user.campaigns.create!(:name => word[0], :description => Faker::Lorem.sentence(3))
       character = user.characters.create!(:name => word[1], :description => Faker::Lorem.sentence(3))
       character.campaign_id = campaign.id
+      character.img_url = "http://www.icculus.org/~msphil/dbay/chars/character-#{i+1}.png"
       character.save
       5.times do
         randomplus = Random.rand(5) + 1
