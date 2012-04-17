@@ -22,6 +22,17 @@
             </tr>
           <% end %>
         <% end %>
+        <% unless @campaign.characters.empty? %>
+        <% @characters = @campaign.characters %>
+        <% @skip_campaign_name = true %>
+        <% @on_campaign_page = true %>
+          <tr>
+            <table class="characters" summary="Campaign characters">
+              <th>Characters</th>
+              <%= render @characters %>
+            </table>
+          </tr>
+        <% end %>
       </table>
     </td>
     <td class="sidebar round">
