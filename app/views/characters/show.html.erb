@@ -1,7 +1,7 @@
 <table class="character-profile" summary="Profile information">
+  <h1><%= @character.name %></h1>
   <tr>
     <td class="main">
-      <h1><%= @character.name %></h1>
       <table class="character-summary" summary="Character information">
         <tr>
           <td>
@@ -20,10 +20,14 @@
             </tr>
           <% end %>
         <% end %>
-        <table>
-          <th>Items</th>
-          <%= render @character.items %>
-        </table>
+        <tr>
+          <td>
+            <table>
+              <th>Items</th>
+              <%= render @character.items %>
+            </table>
+          </td>
+        </tr>
       </table>
     </td>
     <td class="sidebar round">

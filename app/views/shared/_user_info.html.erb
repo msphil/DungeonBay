@@ -3,9 +3,18 @@
     <span class="user_name">
       <%= current_user.name %>
     </span>
-    <br />
-    <span class="characters">
-      <%= pluralize(current_user.characters.count, "item") %>
-    </span>
   </a>
+  <br />
+  <span class="characters">
+    <%= pluralize(current_user.characters.count, "character") %>
+  </span>
+  <br />
+  <span class="character-selected">
+    <% if character_selected? %>
+      <strong>Signed in as:</strong> 
+      <a href="<%= character_path(current_character) %>">
+        <%= current_character.name %><br />
+      </a>
+    <% end %>
+  </span>
 </div>

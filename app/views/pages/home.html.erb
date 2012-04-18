@@ -2,9 +2,10 @@
   <table class="front" summary="For signed-in users">
     <tr>
       <td class="auctions-link">
-        <tr>
-          <%= link_to "Check out some auctions!", auctions_path, :class => "auctions_button round" %>
-        </tr>
+        <%= link_to "Check out all the auctions!", auctions_path, :class => "auctions_button round" %>
+        <p />
+        ...or search the auctions from the campaign your currently-selected character is in:<br />
+        <%= render 'auctions/search' %><br />
       </td>
       <td class="sidebar round">
         <%= render 'shared/user_info' %>
