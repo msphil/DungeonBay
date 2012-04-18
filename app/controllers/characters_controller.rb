@@ -53,6 +53,16 @@ class CharactersController < ApplicationController
     end
   end
 
+  def index
+    @characters = Character.paginate(:page => params[:page])
+    @title = "All characters"
+  end
+
+  def index_campaignless
+    @characters = Character.where(:campaign_id => nil)#.paginate
+    @title = "Characters lacking a campaign"
+  end
+
   def correct_user
     @character = Character.find(params[:id])
     @user = User.find(@character.owner_id)

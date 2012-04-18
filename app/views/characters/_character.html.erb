@@ -6,6 +6,14 @@
     <% unless @skip_campaign_name %>
       <span class="campaign"><strong>Campaign:</strong> <%= character.campaign_name %></span>
     <% end %>
+    <% if signed_in? %>
+      <% if !character.campaign_id %>
+        <% if campaign_selected? %>
+          <br />
+          <%= link_to("Add this character to " + current_campaign.name, :controller=>"campaigns", :action => 'add_character', :character_id => character.id, :campaign_id => current_campaign.id) %>
+        <% end %>
+      <% end %>
+    <% end %>
   </td>
 </tr>
 <% if @in_user_profile and signed_in? %>
@@ -24,9 +32,11 @@
 </tr>
 <% end %>
 <% if @on_campaign_page %>
-<tr>
-  <td class="edit">
-    GM edit buttons will go here
-  </td>
-</tr>
+  <% if current_user.id == @campaign.owner_id %>
+  <tr>
+    <td class="gm_edit">
+      GM edit buttons will go here
+    </td>
+  </tr>
+  <% end %>
 <% end %>

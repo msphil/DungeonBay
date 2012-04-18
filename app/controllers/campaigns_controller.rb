@@ -28,6 +28,42 @@ class CampaignsController < ApplicationController
     @title = @campaign.name
   end
 
+  def add_character
+    @campaign = Campaign.find(params[:campaign_id])
+    @character = Character.find(params[:character_id])
+    if @campaign
+      if @character
+        if @character.campaign_id == nil
+          @character.campaign_id = @campaign.id
+          @character.save
+          redirect_to @campaign
+        else
+          flash[:error] = "Character is already in a campaign!"
+          redirect_to root_path
+        end
+      else
+        flash[:error] = "No such character!"
+        redirect_to root_path
+      end
+    else
+      flash[:error] = "Invalid campaign!"
+      redirect_to root_path
+    end
+  end
+
+  def select
+    @campaign = Campaign.find(params[:id])
+    if @campaign.owner_id == current_user.id
+      @title = @campaign.name + " selected"
+      flash[:success] = "Selected " + @campaign.name + "!"
+      select_campaign @campaign
+      redirect_to current_user
+    else
+      flash[:error] = "You cannot sign in to a campaign you do not own!"
+      redirect_to root_path
+    end
+  end
+
   def update
     @campaign = Campaign.find(params[:id])
     if @campaign.update_attributes(params[:campaign])

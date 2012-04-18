@@ -22,6 +22,7 @@
     <td class="sidebar round">
       <strong>Name</strong> <%= @user.name %><br />
       <strong>URL</strong>  <%= link_to user_path(@user), @user %><br />
+      <strong>Campaigns</strong> <%= @user.campaigns.count %><br/>
       <strong>Characters</strong> <%= @user.characters.count %><br/>
       <% if signed_in? %>
         <%= link_to "Create a campaign", newcampaign_path, :class => "createcampaign_button round" %><br />
@@ -29,7 +30,13 @@
         <% if character_selected? %>
           <strong>Signed in as:</strong> <%= current_character.name %>
         <% else %>
-          You will need to choose a character for some functionality.
+          You will need to choose one of your characters for the auction functionality.
+        <% end %>
+        <% if campaign_selected? %>
+          <strong>Campaign selected:</strong> <%= current_campaign.name %><br />
+          (this allows you to add 
+            <%= link_to("campaignless characters", :controller=>"characters", :action => 'index_campaignless') %>
+          to this campaign)
         <% end %>
       <% end %>
     </td>

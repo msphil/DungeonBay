@@ -22,5 +22,8 @@ DungeonBay::Application.routes.draw do
   root :to => 'pages#home'
 
   match '/characters/:id/select',  :controller => 'characters', :action => 'select'
+  match '/campaigns/:id/select',  :controller => 'campaigns', :action => 'select'
+  match '/campaigns/:campaign_id/addcharacter/:character_id',  :controller => 'campaigns', :action => 'add_character'
+  match '/campaignless',  :controller => 'characters', :action => 'index_campaignless'
 
 end

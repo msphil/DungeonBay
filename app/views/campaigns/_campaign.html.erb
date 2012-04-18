@@ -2,5 +2,10 @@
   <td class="campaign">
     <span class="name"><%= link_to campaign.name, campaign %></span><br />
     <span class="description"><%= campaign.description %></span>
+    <% if signed_in? %>
+      <% if current_user.id == campaign.owner_id %>
+        <%= link_to("Choose this campaign", :controller=>"campaigns", :action => 'select', :id => campaign.id) %>
+      <% end %>
+    <% end %>
   </td>
 </tr>
