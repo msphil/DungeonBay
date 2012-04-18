@@ -13,13 +13,13 @@
   </table>
 <% else %>
 
-  <p>[Auction Search goes here]</p>
-
   <h1>DungeonBay</h1>
 
   <p>This is the home page for DungeonBay.</p>
 
-  <%= link_to "Check out some auctions!", auctions_path, :class => "auctions_button round" %>
+  <%= render 'auctions/search' %><br />
+
+  <%= link_to "Check out some auctions!", auctions_path, :class => "auctions_button round" %><br />
 
   <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
 <% end %>

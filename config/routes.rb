@@ -20,6 +20,7 @@ DungeonBay::Application.routes.draw do
   match '/newcharacter', :to => 'characters#new'
   match '/newitem', :to => 'items#new'
   match '/newauction', :to => 'auctions#new'
+  match '/search_auctions', :to => 'auctions#search'
 
   root :to => 'pages#home'
 
@@ -33,5 +34,6 @@ DungeonBay::Application.routes.draw do
   match '/items/:id/select',  :controller => 'items', :action => 'select'
   match '/auctions/:id/bid',  :controller => 'auctions', :action => 'bid'
   match '/auctions/:id/update_bid/',  :controller => 'auctions', :action => 'update_bid'
+  match '/search/results/',  :controller => 'auctions', :action => 'search_results'
 
 end

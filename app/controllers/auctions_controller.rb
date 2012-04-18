@@ -42,6 +42,14 @@ class AuctionsController < ApplicationController
     end
   end
 
+  def search
+    @title = "Auction search"
+  end
+
+  def search_results
+    @auctions = Auction.search(params[:search_terms]).paginate(:page => params[:page])
+  end
+
   def update_bid
     @auction = Auction.find(params[:id])
     @item = Item.find(@auction.item_id)
