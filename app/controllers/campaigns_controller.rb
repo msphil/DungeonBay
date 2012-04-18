@@ -28,6 +28,11 @@ class CampaignsController < ApplicationController
     @title = @campaign.name
   end
 
+  def index
+    @campaigns = Campaign.paginate(:page => params[:page])
+    @title = "All campaigns"
+  end
+
   def add_character
     @campaign = Campaign.find(params[:campaign_id])
     @character = Character.find(params[:character_id])

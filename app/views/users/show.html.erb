@@ -33,10 +33,14 @@
           You will need to choose one of your characters for the auction functionality.
         <% end %>
         <% if campaign_selected? %>
+          <span class="campaign-options">
           <strong>Campaign selected:</strong> <%= current_campaign.name %><br />
           (this allows you to add 
             <%= link_to("campaignless characters", :controller=>"characters", :action => 'index_campaignless') %>
-          to this campaign)
+            to this campaign or 
+            <%= link_to("create items", newitem_path) %>
+            for this campaign.)
+          </span>
         <% end %>
       <% end %>
     </td>

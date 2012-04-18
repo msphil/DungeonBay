@@ -1,0 +1,11 @@
+<h1>All campaigns</h1>
+
+<%= will_paginate %>
+
+<% @in_campaign_index = true %>
+<table class="campaigns">
+  <%= render @campaigns %>
+</table>
+
+<%= will_paginate %>
+

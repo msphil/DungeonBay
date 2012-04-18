@@ -1,5 +1,8 @@
 <tr>
   <td class="campaign">
+    <% if @in_campaign_index %>
+    <span class="campaign-logo"><img src="<%= campaign.img_url %>" /></span><br />
+    <% end %>
     <span class="name"><%= link_to campaign.name, campaign %></span><br />
     <span class="description"><%= campaign.description %></span>
     <% if signed_in? %>

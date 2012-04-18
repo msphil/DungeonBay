@@ -1,8 +1,19 @@
-<tr>
-  <td class="item">
-    <span class="description"><%= item.description %></span>
-    <span class="timestamp">
-      Posted <%= time_ago_in_words(item.created_at) %> ago.
-    </span>
+<tr class="item">
+  <td class="item-picture">
+    <span class="picture"><img src="<%= item.image_url %>" /></span>
+  </td>
+  <td>
+    <table>
+      <tr>
+        <td class="item-name">
+          <span class="description"><%= item.name %></span>
+        </td>
+      </tr>
+      <tr>
+        <td class="item-name">
+          <span class="description"><%= item.description %></span>
+        </td>
+      </tr>
+    </table>
   </td>
 </tr>
