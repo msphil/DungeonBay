@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def logo
-    logo = image_tag("dungeonlogosmall.png", :alt => "DungeonBay", :class => "round")
+    logo = image_tag("dblogo.png", :alt => "DungeonBay", :class => "round")
   end
 
   def title

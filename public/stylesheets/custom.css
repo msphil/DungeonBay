@@ -4,6 +4,8 @@
 
 body {
   background: #cff;
+  background-image:url(http://manyshapedwebdesign.com/images/dbbackground.jpg);
+  background-position:50% 15%;
 }
 
 header {
@@ -11,8 +13,7 @@ header {
 }
 
 header img {
-  padding: 1em;
-  background: #fff;
+  padding: .2em 1em;
 }
 
 section {
@@ -29,12 +30,12 @@ section h1 {
 /* Links */
 
 a {
-  color: #09c;
+  color: #105d54;
   text-decoration: none;
 }
 
 a:hover {
-  color: #069;
+  color: #188578;
   text-decoration: underline;
 }
 
@@ -86,11 +87,16 @@ a.signup_button {
   display: block;
   text-align: center;
   width: 190px;
-  color: #fff;
-  background: #006400;
-  font-size: 150%;
+  background: #2f1805;
+  font-size: 150%; 
   font-weight: bold;
   padding: 20px;
+  color: #ebce47;
+  background-image:url(http://manyshapedwebdesign.com/images/dbbutton.jpg);
+	-moz-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	-webkit-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	border:2px solid #1b0a03;
 }
 
 /* Campaign create button, forked from above */
@@ -100,11 +106,16 @@ a.createcampaign_button {
   display: block;
   text-align: center;
   width: 120px;
-  color: #fff;
-  background: #006400;
+  background: #2f1805;
   /*font-size: 100%;*/
   font-weight: bold;
   padding: 10px;
+  color: #ebce47;
+  background-image:url(http://manyshapedwebdesign.com/images/dbbutton.jpg);
+	-moz-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	-webkit-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	border:2px solid #1b0a03;
 }
 
 /* Character create button, forked from above */
@@ -114,11 +125,16 @@ a.createcharacter_button {
   display: block;
   text-align: center;
   width: 120px;
-  color: #fff;
-  background: #006400;
+  background: #2f1805;
   /*font-size: 100%;*/
   font-weight: bold;
   padding: 10px;
+  color: #ebce47;
+  background-image:url(http://manyshapedwebdesign.com/images/dbbutton.jpg);
+	-moz-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	-webkit-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	border:2px solid #1b0a03;
 }
 
 /* Round corners */
@@ -264,8 +280,6 @@ form.new_item textarea {
   height: 4em;
   margin-bottom: 0;
 }
-
-
 
 /* debug flash */
 .debug {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
