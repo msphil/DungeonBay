@@ -15,12 +15,14 @@
         </td>
       </tr>
       <% character = Character.find(item.owner_id) %>
-      <% if character.owner_id == current_user.id %>
-      <tr>
-        <td class="item-auction">
-          <%= link_to("Create an auction with this item", :controller=>"items", :action => 'select', :id => item.id) %>
-        </td>
-      </tr>
+      <% if !@viewing_auctions %>
+        <% if character.owner_id == current_user.id %>
+        <tr>
+          <td class="item-auction">
+            <%= link_to("Create an auction with this item", :controller=>"items", :action => 'select', :id => item.id) %>
+          </td>
+        </tr>
+        <% end %>
       <% end %>
     </table>
   </td>

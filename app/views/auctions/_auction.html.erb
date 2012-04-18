@@ -1,10 +1,18 @@
+<% @viewing_auctions = true %>
 <% item = Item.find(auction.item_id) %>
 <%= render item %>
 <tr>
   <td class="auction">
     <span "auction-description"><%= auction.description %></span><br />
-    <span "auction-bid"><strong>Current bid:</strong><%= auction.current_bid %></span><br />
-    <span "auction-high-bidder"><strong>High bidder:</strong><% get_bidder_name auction %></span><br />
-    <span "auction-buyout"><strong>Buyout price:</strong><%= get_buyout_price auction %></span><br />
+    <span "auction-bid"><strong>Current bid:</strong> <%= get_current_bid auction %></span><br />
+    <span "auction-high-bidder"><strong>High bidder:</strong> <%= get_bidder_name auction %></span><br />
+    <span "auction-buyout"><strong>Buyout price:</strong> <%= get_buyout_price auction %></span><br />
+    <% if signed_in? %>
+      <% if auction.creator_id != current_user.id %>
+        <% if character_selected? and current_character.campaign_id == item.campaign_id %>
+          <%= link_to("Bid!", :controller=>"auctions", :action => 'bid', :id => auction.id) %>
+        <% end %>
+      <% end %>
+    <% end %>
   </td>
 </tr>

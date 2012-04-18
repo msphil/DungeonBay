@@ -1,6 +1,6 @@
 class AuctionsController < ApplicationController
   before_filter :authenticate, :only => [:new, :create, :destroy]
-  before_filter :is_my_item
+  before_filter :is_my_item, :only => [:new, :create, :destroy]
 
   def create
     @auction = current_user.auctions.build(params[:auction])
@@ -19,6 +19,10 @@ class AuctionsController < ApplicationController
     @title = "All auctions"
   end
 
+  def show
+    @auction = Auction.find(params[:id])
+    @title = "Auction"
+  end
   def destroy
   end
 
@@ -26,6 +30,47 @@ class AuctionsController < ApplicationController
     i = current_item
     @title = "Create auction"
     @auction = Auction.new
+  end
+
+  def bid
+    @title = "Bid!"
+    @auction = Auction.find(params[:id])
+    if @auction
+      @item = Item.find(@auction.item_id)
+    else
+      redirect_to root_path
+    end
+  end
+
+  def update_bid
+    @auction = Auction.find(params[:id])
+    @item = Item.find(@auction.item_id)
+    bid = params[:bid].to_i
+    if signed_in?
+      if character_selected?
+        if current_character.campaign_id == @item.campaign_id
+          if current_character.gold >= bid
+            if !@auction.current_bid or bid > @auction.current_bid
+              @auction.current_bid = bid
+              @auction.bidder_id = current_character.id
+              @auction.save
+              # Gold does not transfer here, it transfers when the auction is complete
+            else
+              flash[:error] = "Your bid must be greater than the current high bid!"
+            end
+          else
+            flash[:error] = "Your current character does not have enough gold for that bid!"
+          end
+        else
+          flash[:error] = "Your current character must be in the campaign with the item!"
+        end
+      else
+        flash[:error] = "You must have a character selected to bid!"
+      end
+    else
+      flash[:error] = "You must be signed in to bid!"
+    end
+    redirect_to @auction
   end
 
   def is_my_item

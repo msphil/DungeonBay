@@ -1,0 +1,14 @@
+<h1>Bid on <%= @item.name %></h1>
+
+<% form_url = "/auctions/" + @auction.id.to_s + "/update_bid/" %>
+<div class="current-bid">
+  Current bid: <%= @auction.current_bid %>
+</div>
+<form action="<%= form_url %>" method="post">
+  <div class="field">
+    Amount to bid: <input type="text" name="bid">
+  </div>
+  <div class="actions">
+    <input type="submit" value="Bid!">
+  </div>
+</form>

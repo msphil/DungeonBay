@@ -1,0 +1,13 @@
+<table class="auction" summary="Auction information">
+  <% item = Item.find(@auction.item_id) %>
+  <tr>
+    <td class="main">
+      <h1>
+        <%= item.name %>
+      </h1>
+      <table>
+        <%= render @auction %>
+      </table>
+    </td>
+  </tr>
+</table>
