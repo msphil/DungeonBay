@@ -29,6 +29,19 @@ class CharactersController < ApplicationController
     @title = @character.name
   end
 
+  def select
+    @character = Character.find(params[:id])
+    if @character.owner_id == current_user.id
+      @title = @character.name + " selected"
+      flash[:success] = "Signed in as " + @character.name + "!"
+      select_character @character
+      redirect_to current_user
+    else
+      flash[:error] = "You cannot sign in as a character you do not own!"
+      redirect_to root_path
+    end
+  end
+
   def update
     @character = Character.find(params[:id])
     if @character.update_attributes(params[:character])

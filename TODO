@@ -27,11 +27,6 @@ Ability to browse items by character
 Ability to browse characters by campaign
 Ability to browse campaigns
 
-On sign-in, choose a character or a campaign.
-  * Campaign owners can choose a campaign.  Everyone else chooses a character.
-  * Non-owner GMs choose a GM-capable character.
-  * Character/campaign stored in cookies along with login?
-
 Note: no ability to remove characters from campaigns until we decide what to do with the items...
 
 On sign-in, view pending offers, accept/reject.  [Delayed until after demonstration]

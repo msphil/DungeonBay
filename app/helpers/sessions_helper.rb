@@ -5,12 +5,21 @@ module SessionsHelper
     self.current_user = user
   end
 
+  def select_character(character)
+    cookies.permanent.signed[:remember_character] = character.id
+    self.current_character = character
+  end
+
   def current_user=(user)
     @current_user = user
   end
 
   def current_character=(character)
     @current_character = character
+  end
+
+  def character_selected?
+    !current_character.nil?
   end
 
   def signed_in?
@@ -61,6 +70,10 @@ module SessionsHelper
 
   def user_from_remember_token
     User.authenticate_with_salt(*remember_token)
+  end
+
+  def character_from_remember_token
+    Character.find_by_id(*remember_character)
   end
 
   def remember_character
