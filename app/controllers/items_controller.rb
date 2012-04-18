@@ -27,6 +27,24 @@ class ItemsController < ApplicationController
   def destroy
   end
 
+  def select
+    @item = Item.find(params[:id])
+    if @item
+      c = Character.find(@item.owner_id)
+      if c.owner_id == current_user.id
+        @title = @item.name + " selected"
+        flash[:success] = "Selected " + @item.name + "!"
+        select_item @item
+        redirect_to newauction_path
+      else
+        flash[:error] = "You cannot select an item you do not own!"
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
+  end
+
   def is_gm_character
     if signed_in? and character_selected? and campaign_selected?
       if current_campaign.owner_id == current_user.id and current_character.campaign_id == current_campaign.id and current_character.owner_id == current_user.id

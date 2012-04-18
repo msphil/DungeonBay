@@ -1,6 +1,11 @@
 <% if signed_in? %>
   <table class="front" summary="For signed-in users">
     <tr>
+      <td class="auctions-link">
+        <tr>
+          <%= link_to "Check out some auctions!", auctions_path, :class => "auctions_button round" %>
+        </tr>
+      </td>
       <td class="sidebar round">
         <%= render 'shared/user_info' %>
       </td>
@@ -13,6 +18,8 @@
   <h1>DungeonBay</h1>
 
   <p>This is the home page for DungeonBay.</p>
+
+  <%= link_to "Check out some auctions!", auctions_path, :class => "auctions_button round" %>
 
   <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
 <% end %>

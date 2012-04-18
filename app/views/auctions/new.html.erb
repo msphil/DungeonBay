@@ -1,0 +1,28 @@
+<h1>Create an Auction</h1>
+
+<% item = current_item %>
+<%= form_for(@auction) do |f| %>
+  <%= render 'shared/error_messages', :object => f.object %>
+  <div class="auction-intro">
+    Creating an auction for '<%= item.name %>'
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :open_bid %><br />
+    <%= f.text_field :open_bid %>
+  </div>
+  <div class="field">
+    <%= f.label :buyout_price %><br />
+    <%= f.text_field :buyout_price %>
+  </div>
+  <div class="field">
+    <%= f.label :expires %><br />
+    <%= f.text_field :expires %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Create!" %>
+  </div>
+<% end %>

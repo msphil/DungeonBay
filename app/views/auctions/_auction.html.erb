@@ -1,0 +1,10 @@
+<% item = Item.find(auction.item_id) %>
+<%= render item %>
+<tr>
+  <td class="auction">
+    <span "auction-description"><%= auction.description %></span><br />
+    <span "auction-bid"><strong>Current bid:</strong><%= auction.current_bid %></span><br />
+    <span "auction-high-bidder"><strong>High bidder:</strong><% get_bidder_name auction %></span><br />
+    <span "auction-buyout"><strong>Buyout price:</strong><%= get_buyout_price auction %></span><br />
+  </td>
+</tr>

@@ -7,8 +7,11 @@ Nicer styles
 
 == Auctions == 
 
-Interface to create auctions
-Interface to view auctions
+Ability to search auctions
+
+Ability to bid
+
+Ability to buyout
 
 == Offers ==
 
@@ -16,25 +19,31 @@ Create an offer [Delayed until after demonstration]
 Accept/reject an offer [Delayed until after demonstration]
 Ability to browse items by character (and make an offer) [Delayed until after demonstration]
 
-= Functionality =
+== Stores ==
+
+For GM characters, add a special page as a "GM shop"
+
+== Functionality ==
 
 Ability to promote characters to GM (note: can be active, similar to follow functionality) [Delayed]
 Ability to demote characters from GM (note: can be active, similar to follow functionality) [Delayed]
-
-Ability to create items within the campaign
 
 Note: no ability to remove characters from campaigns until we decide what to do with the items...
 
 On sign-in, view pending offers, accept/reject.  [Delayed until after demonstration]
 
-= Development support =
+== Development support ==
 
 Create a demo database population task
 Update dev. database task to use more Faker (e.g. names) and less Lorem.
 
-= Security =
+== Security ==
 
 Evaluate where authentication is still needed
 Evaluate where actions can be restricted
 Evaluate authorization model
+
+== RSPEC ==
+
+Revisit tests, tests have fallen way behind the development
 

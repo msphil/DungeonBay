@@ -6,7 +6,7 @@ DungeonBay::Application.routes.draw do
   resources :characters#, :only => [:new, :create, :edit]#, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :items,    :only => [:new, :create, :destroy]
-  resources :auctions, :only => [:new, :create, :destroy]
+  resources :auctions, :only => [:new, :create, :destroy, :index]
 
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
@@ -19,6 +19,7 @@ DungeonBay::Application.routes.draw do
   match '/newcampaign', :to => 'campaigns#new'
   match '/newcharacter', :to => 'characters#new'
   match '/newitem', :to => 'items#new'
+  match '/newauction', :to => 'auctions#new'
 
   root :to => 'pages#home'
 
@@ -29,5 +30,6 @@ DungeonBay::Application.routes.draw do
   match '/campaigns/:id/select',  :controller => 'campaigns', :action => 'select'
   match '/campaigns/:campaign_id/addcharacter/:character_id',  :controller => 'campaigns', :action => 'add_character'
   match '/campaignless',  :controller => 'characters', :action => 'index_campaignless'
+  match '/items/:id/select',  :controller => 'items', :action => 'select'
 
 end

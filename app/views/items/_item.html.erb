@@ -14,6 +14,14 @@
           <span class="description"><%= item.description %></span>
         </td>
       </tr>
+      <% character = Character.find(item.owner_id) %>
+      <% if character.owner_id == current_user.id %>
+      <tr>
+        <td class="item-auction">
+          <%= link_to("Create an auction with this item", :controller=>"items", :action => 'select', :id => item.id) %>
+        </td>
+      </tr>
+      <% end %>
     </table>
   </td>
 </tr>

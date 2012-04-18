@@ -13,6 +13,10 @@ module SessionsHelper
     @current_user ||= user_from_remember_token
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
   def signed_in?
     !current_user.nil?
   end
@@ -44,10 +48,6 @@ module SessionsHelper
     @current_character ||= character_from_remember_token
   end
 
-  def current_user?(user)
-    user == current_user
-  end
-
   def current_character?(character)
     character == current_character
   end
@@ -74,15 +74,36 @@ module SessionsHelper
     @current_campaign ||= campaign_from_remember_token
   end
 
-  def current_user?(user)
-    user == current_user
-  end
-
   def current_campaign?(campaign)
     campaign == current_campaign
   end
 
- 
+  def current_item=(item)
+    @current_item = item
+  end
+
+  def item_selected?
+    !current_item.nil?
+  end
+
+  def select_item(item)
+    cookies.permanent.signed[:remember_item] = item.id
+    self.current_item = item
+  end
+
+  def deselect_item
+    cookies.delete(:remember_item)
+    self.current_item = nil
+  end
+
+  def current_item
+    @current_item ||= item_from_remember_token
+  end
+
+  def current_item?(item)
+    item == current_item
+  end
+
   def deny_access
     store_location
     redirect_to signin_path, :notice => "Please sign in to access this page."
@@ -140,7 +161,24 @@ module SessionsHelper
     cookies.signed[:remember_campaign] || [nil]
   end
 
- 
+   def item_from_remember_token
+    # make sure that we lose the saved item if the user changes
+    i = Item.find_by_id(*remember_item)
+    if i and signed_in? and character_selected?
+      c = Character.find(i.owner_id)
+      if c.owner_id == current_user.id
+        return i
+      end
+    end
+    deselect_item
+    return nil
+  end
+
+  def remember_item
+    cookies.signed[:remember_item] || [nil]
+  end
+
+
   def remember_token
     cookies.signed[:remember_token] || [nil, nil]
   end
