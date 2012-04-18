@@ -7,17 +7,18 @@ Nicer styles
 
 == Auctions == 
 
-Ability to search auctions
-
-Ability to bid
+Ability to search auctions (partially implemented, need to search descriptions, too)
 
 Ability to buyout
+
+Don't allow an item to have an auction created if it has an auction already
 
 == Offers ==
 
 Create an offer [Delayed until after demonstration]
 Accept/reject an offer [Delayed until after demonstration]
-Ability to browse items by character (and make an offer) [Delayed until after demonstration]
+Ability to browse items by character (done -- item inventory is on the character screen)
+  ...(and make an offer) [Delayed until after demonstration]
 
 == Stores ==
 

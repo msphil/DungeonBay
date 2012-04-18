@@ -30,7 +30,7 @@ describe UsersController do
 
       it "should include the user's name" do
         get :show, :id => @user
-        response.should have_selector("h1", :content => @user.name)
+        response.should have_selector("th", :content => @user.name)
       end
 
       it "should show the user's characters" do
@@ -66,7 +66,7 @@ describe UsersController do
 
       it "should include the user's name" do
         get :show, :id => @user
-        response.should have_selector("h1", :content => @user.name)
+        response.should have_selector("th", :content => @user.name)
       end
 
       it "should show the user's characters" do

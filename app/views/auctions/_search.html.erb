@@ -1,9 +1,9 @@
 <% form_url = "/search/results" %>
-<form action="<%= form_url %>" method="post">
-  <div class="search-terms">
-    Search for key word(s): <input type="text" name="search_terms">
+<form action="<%= form_url %>" method="post" class="search">
+  <div class="search_terms">
+    Search for key word(s): <input type="text" name="search_terms" class="search_terms">
   </div>
   <div class="actions">
-    <input type="submit" value="Search!">
+    <input type="submit" value="Search!" class="search_button">
   </div>
 </form>
