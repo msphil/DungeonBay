@@ -1,6 +1,5 @@
 DungeonBay::Application.routes.draw do
-  #get "characters/new"
-  #get "campaigns/new"
+
 
   resources :users
   resources :campaigns#, :only => [:new, :create, :edit]#, :destroy]
@@ -21,5 +20,7 @@ DungeonBay::Application.routes.draw do
   match '/newcharacter', :to => 'characters#new'
 
   root :to => 'pages#home'
+
+  match '/characters/:id/select',  :controller => 'characters', :action => 'select'
 
 end

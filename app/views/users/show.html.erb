@@ -11,6 +11,7 @@
         </table>
       <% end %>
       <% unless @user.characters.empty? %>
+        <% @in_user_profile = true %>
         <table class="characters" summary="User characters">
           <th>Characters</th>
           <%= render @characters %>
@@ -24,7 +25,12 @@
       <strong>Characters</strong> <%= @user.characters.count %><br/>
       <% if signed_in? %>
         <%= link_to "Create a campaign", newcampaign_path, :class => "createcampaign_button round" %><br />
-        <%= link_to "Create a character", newcharacter_path, :class => "createcharacter_button round" %>
+        <%= link_to "Create a character", newcharacter_path, :class => "createcharacter_button round" %><br />
+        <% if character_selected? %>
+          <strong>Signed in as:</strong> <%= current_character.name %>
+        <% else %>
+          You will need to choose a character for some functionality.
+        <% end %>
       <% end %>
     </td>
   </tr>

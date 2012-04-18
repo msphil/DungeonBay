@@ -13,7 +13,7 @@
 #
 
 class Character < ActiveRecord::Base
-  attr_accessible :name, :description, :image_url
+  attr_accessible :name, :description, :img_url
 
   validates :name, :presence => true, :length => { :within => 1..50 }
   validates :description, :presence => true, :length => { :maximum => 1023 }
