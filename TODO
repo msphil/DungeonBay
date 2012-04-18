@@ -11,8 +11,6 @@ Ability to search auctions (partially implemented, need to search descriptions, 
 
 Ability to buyout
 
-Don't allow an item to have an auction created if it has an auction already
-
 == Offers ==
 
 Create an offer [Delayed until after demonstration]

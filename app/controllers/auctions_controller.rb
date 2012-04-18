@@ -3,14 +3,20 @@ class AuctionsController < ApplicationController
   before_filter :is_my_item, :only => [:new, :create, :destroy]
 
   def create
-    @auction = current_user.auctions.build(params[:auction])
-    @auction.creator_id = current_user.id
-    @auction.item_id = current_item.id
-    if @auction.save
-      flash[:success] = "Auction created!"
+    a = Auction.find_by_item_id(current_item.id)
+    if a
+      flash[:error] = "That item already has an auction!"
       redirect_to root_path
     else
-      render 'pages/home'
+      @auction = current_user.auctions.build(params[:auction])
+      @auction.creator_id = current_user.id
+      @auction.item_id = current_item.id
+      if @auction.save
+        flash[:success] = "Auction created!"
+        redirect_to root_path
+      else
+        render 'pages/home'
+      end
     end
   end
 
@@ -23,6 +29,7 @@ class AuctionsController < ApplicationController
     @auction = Auction.find(params[:id])
     @title = "Auction"
   end
+
   def destroy
   end
 
