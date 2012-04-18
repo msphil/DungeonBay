@@ -51,6 +51,19 @@ class CampaignsController < ApplicationController
     end
   end
 
+  def add_gold_to_character
+    @character = Character.find(params[:character_id])
+    if @character
+      if campaign_selected?
+        if @character.campaign_id == current_campaign.id
+          @character.gold += params[:gold]
+          @character.save
+        end
+      end
+    end
+    redirect_to campaign_path
+  end
+
   def select
     @campaign = Campaign.find(params[:id])
     if @campaign.owner_id == current_user.id

@@ -17,14 +17,13 @@ Accept/reject an offer [Delayed until after demonstration]
 
 = Functionality =
 
-Ability to add characters to campaigns (note: can be active, similar to follow functionality)
-Ability to promote characters to GM (note: can be active, similar to follow functionality)
-Ability to demote characters from GM (note: can be active, similar to follow functionality)
+Ability to promote characters to GM (note: can be active, similar to follow functionality) [Delayed]
+Ability to demote characters from GM (note: can be active, similar to follow functionality) [Delayed]
+
 Ability to create items within the campaign
 
-Ability to browse items by character
-    (and make an offer) [Delayed until after demonstration]
-Ability to browse characters by campaign
+Ability to browse items by character (and make an offer) [Delayed until after demonstration]
+
 Ability to browse campaigns
 
 Note: no ability to remove characters from campaigns until we decide what to do with the items...

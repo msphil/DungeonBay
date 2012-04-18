@@ -36,6 +36,7 @@
   <tr>
     <td class="gm_edit">
       GM edit buttons will go here
+      <%= link_to("Add gold to this character", :controller=>"characters", :action => 'add_gold', :id => character.id) %>
     </td>
   </tr>
   <% end %>

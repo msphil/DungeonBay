@@ -1,6 +1,7 @@
 class CharactersController < ApplicationController
-  before_filter :authenticate, :only => [:new, :edit, :update]
+  before_filter :authenticate, :only => [:new, :edit, :update, :add_gold]
   before_filter :correct_user, :only => [:edit, :update]
+  before_filter :is_gm, :only => [:add_gold, :update_gold]
 
   def new
     u = current_user
@@ -67,6 +68,26 @@ class CharactersController < ApplicationController
     @character = Character.find(params[:id])
     @user = User.find(@character.owner_id)
     redirect_to(root_path) unless current_user?(@user)
+  end
+
+  def is_gm
+    @character = Character.find(params[:id])
+    if @character.campaign_id != current_campaign.id and current_campaign.owner_id != current_user.id
+      redirect_to root_path
+    end
+  end
+
+  def add_gold
+    @character = Character.find(params[:id])
+    @title = "Add gold to " + @character.name
+  end
+
+  def update_gold
+    @character = Character.find(params[:id])
+    new_gold = params[:gold].to_i
+    @character.gold += new_gold
+    @character.save
+    redirect_to current_campaign
   end
 
 end

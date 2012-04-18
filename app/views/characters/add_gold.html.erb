@@ -1,0 +1,11 @@
+<h1>Add gold to <%= @character.name %></h1>
+
+<% form_url = "/characters/" + @character.id.to_s + "/update_gold/" %>
+<form action="<%= form_url %>" method="post">
+  <div class="field">
+    Amount to add: <input type="text" name="gold">
+  </div>
+  <div class="actions">
+    <input type="submit" value="Add!">
+  </div>
+</form>

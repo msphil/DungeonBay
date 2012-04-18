@@ -25,7 +25,11 @@
     <td class="sidebar round">
       <strong>Name</strong> <%= @character.name %><br />
       <strong>URL</strong>  <%= link_to character_path(@character), @character %><br />
-      <strong>User</strong>  < %= link_to user_path(@character.owner), @character.owner %><br />
+      <% owner = User.find(@character.owner_id) %>
+      <strong>User</strong>  <%= link_to owner.name, user_path(owner) %><br />
+      <% if owner == current_user %>
+      <strong>Gold</strong>  <%= @character.gold %><br />
+      <% end %>
     </td>
   </tr>
 </table>
