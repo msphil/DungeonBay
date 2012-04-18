@@ -3,8 +3,9 @@
 }
 
 body {
-  background: #cff;
+  background: #002323;
   background-image:url(http://manyshapedwebdesign.com/images/dbbackground.jpg);
+  background-attachment:fixed;
   background-position:50% 15%;
 }
 
@@ -21,6 +22,9 @@ section {
   font-size: 120%;
   padding: 20px;
   background: #fff;
+   -webkit-box-shadow:  0px 0px 20px 1px #012324;
+	-moz-box-shadow:  0px 0px 20px 1px #012324;
+	box-shadow:  0px 0px 20px 1px #012324;
 }
 
 section h1 {
@@ -53,6 +57,19 @@ nav {
   background-color: white;
   padding: 0 0.7em;
   white-space: nowrap;
+   -webkit-box-shadow:  0px 0px 20px 1px #012324;
+	-moz-box-shadow:  0px 0px 20px 1px #012324;
+	box-shadow:  0px 0px 20px 1px #012324;
+	
+	
+background: rgb(242,246,248); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(242,246,248,1) 0%, rgba(216,225,231,1) 50%, rgba(181,198,208,1) 51%, rgba(224,239,249,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,246,248,1)), color-stop(50%,rgba(216,225,231,1)), color-stop(51%,rgba(181,198,208,1)), color-stop(100%,rgba(224,239,249,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(242,246,248,1) 0%,rgba(216,225,231,1) 50%,rgba(181,198,208,1) 51%,rgba(224,239,249,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(242,246,248,1) 0%,rgba(216,225,231,1) 50%,rgba(181,198,208,1) 51%,rgba(224,239,249,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(242,246,248,1) 0%,rgba(216,225,231,1) 50%,rgba(181,198,208,1) 51%,rgba(224,239,249,1) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(242,246,248,1) 0%,rgba(216,225,231,1) 50%,rgba(181,198,208,1) 51%,rgba(224,239,249,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9',GradientType=0 ); /* IE6-9 */
 }
 
 nav ul {
@@ -100,43 +117,40 @@ a.signup_button {
 }
 
 /* Campaign create button, forked from above */
-a.createcampaign_button {
-  margin-left: auto;
-  margin-right: auto;
+a.createcampaign_button, a.createcharacter_button {
+  margin:5px auto 0 auto;
   display: block;
   text-align: center;
-  width: 120px;
+  width: 145px;
   background: #2f1805;
   /*font-size: 100%;*/
   font-weight: bold;
   padding: 10px;
-  color: #ebce47;
+  color: #3e2c0f;
   background-image:url(http://manyshapedwebdesign.com/images/dbbutton.jpg);
-	-moz-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
-	-webkit-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
-	box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
-	border:2px solid #1b0a03;
+	border:1px solid #ccac78;
+	background: rgb(243,226,199); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(243,226,199,1) 0%, rgba(193,158,103,1) 50%, rgba(182,141,76,1) 51%, rgba(233,212,179,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(243,226,199,1)), color-stop(50%,rgba(193,158,103,1)), color-stop(51%,rgba(182,141,76,1)), color-stop(100%,rgba(233,212,179,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(243,226,199,1) 0%,rgba(193,158,103,1) 50%,rgba(182,141,76,1) 51%,rgba(233,212,179,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(243,226,199,1) 0%,rgba(193,158,103,1) 50%,rgba(182,141,76,1) 51%,rgba(233,212,179,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(243,226,199,1) 0%,rgba(193,158,103,1) 50%,rgba(182,141,76,1) 51%,rgba(233,212,179,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(243,226,199,1) 0%,rgba(193,158,103,1) 50%,rgba(182,141,76,1) 51%,rgba(233,212,179,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#e9d4b3',GradientType=0 ); /* IE6-9 */
 }
 
-/* Character create button, forked from above */
-a.createcharacter_button {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  text-align: center;
-  width: 120px;
-  background: #2f1805;
-  /*font-size: 100%;*/
-  font-weight: bold;
-  padding: 10px;
-  color: #ebce47;
-  background-image:url(http://manyshapedwebdesign.com/images/dbbutton.jpg);
-	-moz-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
-	-webkit-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
-	box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
-	border:2px solid #1b0a03;
+a.createcampaign_button:hover, a.createcharacter_button:hover {
+	text-decoration:none;
+	color:#322209;
+	background: rgb(229,192,133); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(229,192,133,1) 0%, rgba(172,133,70,1) 50%, rgba(150,116,62,1) 51%, rgba(217,180,121,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(229,192,133,1)), color-stop(50%,rgba(172,133,70,1)), color-stop(51%,rgba(150,116,62,1)), color-stop(100%,rgba(217,180,121,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(229,192,133,1) 0%,rgba(172,133,70,1) 50%,rgba(150,116,62,1) 51%,rgba(217,180,121,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(229,192,133,1) 0%,rgba(172,133,70,1) 50%,rgba(150,116,62,1) 51%,rgba(217,180,121,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(229,192,133,1) 0%,rgba(172,133,70,1) 50%,rgba(150,116,62,1) 51%,rgba(217,180,121,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(229,192,133,1) 0%,rgba(172,133,70,1) 50%,rgba(150,116,62,1) 51%,rgba(217,180,121,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5c085', endColorstr='#d9b479',GradientType=0 ); /* IE6-9 */
 }
-
 /* Round corners */
 
 .round {
@@ -147,10 +161,8 @@ a.createcharacter_button {
 
 footer {
   text-align: center;
-  margin-top: 10px;
+  margin: 20px auto;
   width: 710px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 footer nav {
@@ -173,7 +185,8 @@ td.sidebar {
   width: 30%;
   padding: 1em;
   vertical-align: top;
-  background: #ffc;
+  background-color: #f9eddb;
+  border:1px solid #eeddc3;
 }
 
 .profile img.gravatar {
@@ -229,7 +242,6 @@ div.field, div.actions {
 h1.item {
   margin-bottom: 0.3em;
 }
-
 table.items {
   margin-top: 1em;
 }
