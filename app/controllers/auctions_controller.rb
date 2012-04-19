@@ -128,11 +128,7 @@ class AuctionsController < ApplicationController
       if character_selected?
         redirect_to current_character
       else
-        if item
-          redirect_to item
-        else
-          redirect_to root_path
-        end
+        redirect_to root_path
       end
     else
       flash[:error] = "Unable to locate auction"
