@@ -11,6 +11,8 @@ Ability to search auctions (partially implemented, need to search descriptions, 
 
 Ability to buyout
 
+Auction expiration should to work
+
 == Offers ==
 
 Create an offer [Delayed until after demonstration]

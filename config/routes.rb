@@ -34,6 +34,7 @@ DungeonBay::Application.routes.draw do
   match '/items/:id/select',  :controller => 'items', :action => 'select'
   match '/auctions/:id/bid',  :controller => 'auctions', :action => 'bid'
   match '/auctions/:id/update_bid/',  :controller => 'auctions', :action => 'update_bid'
+  match '/auctions/:id/finish_auction/',  :controller => 'auctions', :action => 'finish_auction'
   match '/search/results/',  :controller => 'auctions', :action => 'search_results'
 
 end

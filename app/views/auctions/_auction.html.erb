@@ -12,6 +12,8 @@
         <% if character_selected? and current_character.campaign_id == item.campaign_id %>
           <%= link_to("Bid!", :controller=>"auctions", :action => 'bid', :id => auction.id) %>
         <% end %>
+      <% else %>
+        <%= link_to("Expire this auction", :controller=>"auctions", :action => 'finish_auction', :id => auction.id) %>
       <% end %>
     <% end %>
   </td>

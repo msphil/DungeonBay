@@ -99,4 +99,42 @@ class AuctionsController < ApplicationController
     end
   end
 
+  def finish_auction
+    @title = "Completed auction"
+    @auction = Auction.find(params[:id])
+    if @auction
+      complete_auction @auction
+      flash[:success] = "Your auction has completed!"
+    else
+      flash[:error] = "Unable to locate auction"
+    end
+    redirect_to root_path
+  end
+
+  def complete_auction(auction)
+    if auction.current_bid and auction.bidder_id
+      item = Item.find(auction.item_id)
+      buyer = Character.find(auction.bidder_id)
+      seller = Character.find(auction.creator_id)
+      if buyer and seller and item
+        buyer.gold = buyer.gold.to_i - auction.current_bid.to_i
+        seller.gold = seller.gold.to_i + auction.current_bid.to_i
+        item.owner_id = buyer.id
+        buyer.save
+        seller.save
+        item.save
+      end
+      auction.delete
+    else
+      # expire the auction altogether
+      auction.delete
+    end
+  end
+
+  def expire_all_auctions
+    Auction.all do |a|
+      complete_auction a
+    end
+  end
+
 end
