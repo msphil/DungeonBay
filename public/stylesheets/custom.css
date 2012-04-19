@@ -98,7 +98,7 @@ nav ul li a:hover {
 
 /* Sign up button */
 
-a.signup_button {
+a.signup_button,  {
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -116,8 +116,10 @@ a.signup_button {
 	border:2px solid #1b0a03;
 }
 
+
+
 /* Campaign create button, forked from above */
-a.createcampaign_button, a.createcharacter_button {
+a.createcampaign_button, a.createcharacter_button, .search_button {
   margin:5px auto 0 auto;
   display: block;
   text-align: center;
@@ -139,7 +141,7 @@ a.createcampaign_button, a.createcharacter_button {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#e9d4b3',GradientType=0 ); /* IE6-9 */
 }
 
-a.createcampaign_button:hover, a.createcharacter_button:hover {
+a.createcampaign_button:hover, a.createcharacter_button:hover, .search_button:hover {
 	text-decoration:none;
 	color:#322209;
 	background: rgb(229,192,133); /* Old browsers */
@@ -150,6 +152,12 @@ a.createcampaign_button:hover, a.createcharacter_button:hover {
 	background: -ms-linear-gradient(top,  rgba(229,192,133,1) 0%,rgba(172,133,70,1) 50%,rgba(150,116,62,1) 51%,rgba(217,180,121,1) 100%); /* IE10+ */
 	background: linear-gradient(top,  rgba(229,192,133,1) 0%,rgba(172,133,70,1) 50%,rgba(150,116,62,1) 51%,rgba(217,180,121,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e5c085', endColorstr='#d9b479',GradientType=0 ); /* IE6-9 */
+}
+
+.search_button {
+	padding:5px;
+	font-size:1.1em;
+	width: 153px;
 }
 /* Round corners */
 

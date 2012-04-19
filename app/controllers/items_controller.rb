@@ -5,9 +5,6 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @title = "Create new item"
-    #@item.creator_id = current_user.id
-    #@item.campaign_id = current_campaign.id
-    #@item.owner_id = current_character.id
   end
 
   def create
