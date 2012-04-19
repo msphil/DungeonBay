@@ -46,3 +46,8 @@ Evaluate authorization model
 
 Revisit tests, tests have fallen way behind the development
 
+== From presentation ==
+
+Block negative bids [DONE]
+Check bid <= buyout [DONE]
+Fix errors on auction expiration (not occurring on localhost?)

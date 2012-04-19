@@ -61,29 +61,37 @@ class AuctionsController < ApplicationController
     @auction = Auction.find(params[:id])
     @item = Item.find(@auction.item_id)
     bid = params[:bid].to_i
-    if signed_in?
-      if character_selected?
-        if current_character.campaign_id == @item.campaign_id
-          if current_character.gold >= bid
-            if !@auction.current_bid or bid > @auction.current_bid
-              @auction.current_bid = bid
-              @auction.bidder_id = current_character.id
-              @auction.save
-              # Gold does not transfer here, it transfers when the auction is complete
+    if bid > 0
+      if bid <= @auction.buyout_price
+        if signed_in?
+          if character_selected?
+            if current_character.campaign_id == @item.campaign_id
+              if current_character.gold >= bid
+                if !@auction.current_bid or bid > @auction.current_bid
+                  @auction.current_bid = bid
+                  @auction.bidder_id = current_character.id
+                  @auction.save
+                  # Gold does not transfer here, it transfers when the auction is complete
+                else
+                  flash[:error] = "Your bid must be greater than the current high bid!"
+                end
+              else
+                flash[:error] = "Your current character does not have enough gold for that bid!"
+              end
             else
-              flash[:error] = "Your bid must be greater than the current high bid!"
+              flash[:error] = "Your current character must be in the campaign with the item!"
             end
           else
-            flash[:error] = "Your current character does not have enough gold for that bid!"
+            flash[:error] = "You must have a character selected to bid!"
           end
         else
-          flash[:error] = "Your current character must be in the campaign with the item!"
+          flash[:error] = "You must be signed in to bid!"
         end
       else
-        flash[:error] = "You must have a character selected to bid!"
+        flash[:error] = "Bids cannot exceed the buyout price!"
       end
     else
-      flash[:error] = "You must be signed in to bid!"
+      flash[:error] = "Negative bids are not permitted!"
     end
     redirect_to @auction
   end
