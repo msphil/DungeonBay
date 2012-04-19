@@ -1,5 +1,5 @@
 class AuctionsController < ApplicationController
-  before_filter :authenticate, :only => [:new, :create, :destroy]
+  before_filter :authenticate, :only => [:new, :create, :destroy, :bid, :update_bid, :finish_auction]
   before_filter :is_my_item, :only => [:new, :create, :destroy]
 
   def create
@@ -122,9 +122,18 @@ class AuctionsController < ApplicationController
     @title = "Completed auction"
     @auction = Auction.find(params[:id])
     if @auction
+      item = Item.find(@auction.item_id)
       complete_auction @auction
       flash[:success] = "Your auction has completed!"
-      redirect_to current_character
+      if character_selected?
+        redirect_to current_character
+      else
+        if item
+          redirect_to item
+        else
+          redirect_to root_path
+        end
+      end
     else
       flash[:error] = "Unable to locate auction"
       redirect_to root_path
