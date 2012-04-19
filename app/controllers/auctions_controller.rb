@@ -99,12 +99,26 @@ class AuctionsController < ApplicationController
     end
   end
 
+  def buy_it_now
+    @title = "Buy it now!"
+    @auction = Auction.find(params[:id])
+    if @auction
+      @auction.current_bid = @auction.buyout_price
+      @auction.bidder_id = current_character.id
+      complete_auction @auction
+    else
+      flash[:error] = "No such auction!"
+      redirect_to root_path
+    end
+  end
+
   def finish_auction
     @title = "Completed auction"
     @auction = Auction.find(params[:id])
     if @auction
       complete_auction @auction
       flash[:success] = "Your auction has completed!"
+      redirect_to current_character
     else
       flash[:error] = "Unable to locate auction"
     end
@@ -112,8 +126,8 @@ class AuctionsController < ApplicationController
   end
 
   def complete_auction(auction)
+    item = Item.find(auction.item_id)
     if auction.current_bid and auction.bidder_id
-      item = Item.find(auction.item_id)
       buyer = Character.find(auction.bidder_id)
       seller = Character.find(auction.creator_id)
       if buyer and seller and item
@@ -128,6 +142,7 @@ class AuctionsController < ApplicationController
     else
       # expire the auction altogether
       auction.delete
+      redirect_to item
     end
   end
 

@@ -11,6 +11,10 @@
       <% if auction.creator_id != current_user.id %>
         <% if character_selected? and current_character.campaign_id == item.campaign_id %>
           <%= link_to("Bid!", :controller=>"auctions", :action => 'bid', :id => auction.id) %>
+          <% if auction.buyout_price > 0 and auction.buyout_price <= current_character.gold %>
+            <br />
+            <%= link_to("Buy it now!", :controller=>"auctions", :action => 'buy_it_now', :id => auction.id) %>
+          <% end %>
         <% end %>
       <% else %>
         <%= link_to("Expire this auction", :controller=>"auctions", :action => 'finish_auction', :id => auction.id) %>

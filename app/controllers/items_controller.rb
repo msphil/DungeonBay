@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_filter :authenticate
-  before_filter :is_gm_character
+  before_filter :is_gm_character, :only => [:new, :create, :destroy]
+  before_filter :is_my_item, :only => [:select]
 
   def new
     @item = Item.new
@@ -28,7 +29,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     if @item
       c = Character.find(@item.owner_id)
-      if c.owner_id == current_user.id
+      if c == current_character
         @title = @item.name + " selected"
         flash[:success] = "Selected " + @item.name + "!"
         select_item @item
@@ -45,6 +46,18 @@ class ItemsController < ApplicationController
   def is_gm_character
     if signed_in? and character_selected? and campaign_selected?
       if current_campaign.owner_id == current_user.id and current_character.campaign_id == current_campaign.id and current_character.owner_id == current_user.id
+        return true
+      end
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
+  def is_my_item
+    item = Item.find(params[:id])
+    if signed_in? and character_selected? and item
+      if current_character.owner_id == current_user.id and item.owner_id == current_character.id
         return true
       end
       redirect_to root_path
