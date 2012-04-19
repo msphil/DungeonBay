@@ -101,10 +101,8 @@ class AuctionsController < ApplicationController
       if current_character.owner_id == current_user.id and current_item.owner_id == current_character.id
         return true
       end
-      redirect_to root_path
-    else
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 
   def buy_it_now
@@ -129,8 +127,8 @@ class AuctionsController < ApplicationController
       redirect_to current_character
     else
       flash[:error] = "Unable to locate auction"
+      redirect_to root_path
     end
-    redirect_to root_path
   end
 
   def complete_auction(auction)
@@ -150,7 +148,6 @@ class AuctionsController < ApplicationController
     else
       # expire the auction altogether
       auction.delete
-      redirect_to item
     end
   end
 

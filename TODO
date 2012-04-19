@@ -50,4 +50,4 @@ Revisit tests, tests have fallen way behind the development
 
 Block negative bids [DONE]
 Check bid <= buyout [DONE]
-Fix errors on auction expiration (not occurring on localhost?)
+Fix errors on auction expiration (not occurring on localhost?) [DONE]
