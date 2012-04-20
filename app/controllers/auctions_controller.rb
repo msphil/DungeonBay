@@ -9,7 +9,7 @@ class AuctionsController < ApplicationController
       redirect_to root_path
     else
       @auction = current_user.auctions.build(params[:auction])
-      @auction.creator_id = current_user.id
+      @auction.creator_id = current_character.id
       @auction.item_id = current_item.id
       if @auction.save
         flash[:success] = "Auction created!"
@@ -112,6 +112,7 @@ class AuctionsController < ApplicationController
       @auction.current_bid = @auction.buyout_price
       @auction.bidder_id = current_character.id
       complete_auction @auction
+      redirect_to current_character
     else
       flash[:error] = "No such auction!"
       redirect_to root_path
