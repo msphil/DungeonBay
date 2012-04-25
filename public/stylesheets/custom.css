@@ -96,6 +96,65 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+/* Auction Buttons */
+
+a.expire_button  {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 150px;
+  background: #2f1805;
+  font-size: 75%; 
+  font-weight: bold;
+  padding: 10px;
+  color: #ebce47;
+  background-image:url(http://manyshapedwebdesign.com/images/dbbutton.jpg);
+	-moz-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	-webkit-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	border:2px solid #1b0a03;
+}
+
+a.bid_button  {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 150px;
+  background: #2f1805;
+  font-size: 100%; 
+  font-weight: bold;
+  padding: 10px;
+  color: #ebce47;
+  background-image:url(http://manyshapedwebdesign.com/images/dbbutton.jpg);
+	-moz-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	-webkit-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	border:2px solid #1b0a03;
+}
+
+a
+a.buyout_button  {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  width: 150px;
+  background: #2f1805;
+  font-size: 100%; 
+  font-weight: bold;
+  padding: 10px;
+  color: #ebce47;
+  background-image:url(http://manyshapedwebdesign.com/images/dbbutton.jpg);
+	-moz-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	-webkit-box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	box-shadow: inset -3px -3px #2f1805, inset 3px 3px #c6a717;
+	border:2px solid #1b0a03;
+}
+
+
+
 /* Sign up button */
 
 a.signup_button  {

@@ -8,16 +8,16 @@
     <span "auction-high-bidder"><strong>High bidder:</strong> <%= get_bidder_name auction %></span><br />
     <span "auction-buyout"><strong>Buyout price:</strong> <%= get_buyout_price auction %></span><br />
     <% if signed_in? %>
-      <% if auction.creator_id != current_user.id %>
+      <% if auction.creator_id != current_character.id %>
         <% if character_selected? and current_character.campaign_id == item.campaign_id %>
-          <%= link_to("Bid!", :controller=>"auctions", :action => 'bid', :id => auction.id) %>
-          <% if auction.buyout_price > 0 and auction.buyout_price <= current_character.gold %>
+          <%= link_to "Bid!", {:controller=>"auctions", :action => 'bid', :id => auction.id}, {:class => "bid_button round"} %>
+          <% if auction.buyout_price and auction.buyout_price > 0 and auction.buyout_price <= current_character.gold %>
             <br />
-            <%= link_to("Buy it now!", :controller=>"auctions", :action => 'buy_it_now', :id => auction.id) %>
+            <%= link_to "Buy it now!", {:controller=>"auctions", :action => 'buy_it_now', :id => auction.id}, {:class => "buyout_button round"} %>
           <% end %>
         <% end %>
       <% else %>
-        <%= link_to("Expire this auction", :controller=>"auctions", :action => 'finish_auction', :id => auction.id) %>
+        <%= link_to "Expire this auction", {:controller=>"auctions", :action => 'finish_auction', :id => auction.id}, {:class => "expire_button round"} %>
       <% end %>
     <% end %>
   </td>
