@@ -3,6 +3,12 @@ module SessionsHelper
   def sign_in(user)
     cookies.permanent.signed[:remember_token] = [user.id, user.salt]
     self.current_user = user
+    if self.current_user.characters[0]
+      select_character self.current_user.characters[0]
+    end
+    if self.current_user.campaigns[0]
+      select_campaign self.current_user.campaigns[0]
+    end
   end
 
   def current_user=(user)
@@ -24,6 +30,8 @@ module SessionsHelper
   def sign_out
     cookies.delete(:remember_token)
     self.current_user = nil
+    deselect_character
+    deselect_campaign
   end
 
   def current_character=(character)
