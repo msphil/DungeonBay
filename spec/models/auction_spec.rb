@@ -48,7 +48,6 @@ describe Auction do
     end
 
     it "should have the right associated user" do
-      @auction.creator_id.should == @user.id
       @auction.user.should == @user
     end
 
