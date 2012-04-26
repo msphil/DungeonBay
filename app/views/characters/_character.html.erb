@@ -18,7 +18,7 @@
 </tr>
 <% if @in_user_profile and signed_in? %>
 <tr>
-  <% if current_character != character %>
+  <% if character_selected? and current_character != character %>
     <% if character.owner_id == current_user.id %>
       <td class="select">
         <%= link_to("Choose this character", :controller=>"characters", :action => 'select', :id => character.id) %>
@@ -32,7 +32,7 @@
 </tr>
 <% end %>
 <% if @on_campaign_page %>
-  <% if current_user.id == @campaign.owner_id %>
+  <% if signed_in? and current_user.id == @campaign.owner_id %>
   <tr>
     <td class="gm_edit">
       <%= link_to("Add gold to this character", :controller=>"characters", :action => 'add_gold', :id => character.id) %>

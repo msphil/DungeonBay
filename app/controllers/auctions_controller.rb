@@ -15,6 +15,7 @@ class AuctionsController < ApplicationController
         flash[:success] = "Auction created!"
         redirect_to root_path
       else
+        flash[:error] = "Auction could not be created (probably missing a description)!"
         render 'pages/home'
       end
     end
@@ -45,6 +46,7 @@ class AuctionsController < ApplicationController
     if @auction
       @item = Item.find(@auction.item_id)
     else
+      flash[:error] = "Invalid auction id"
       redirect_to root_path
     end
   end

@@ -17,7 +17,7 @@
       <% character = Character.find(item.owner_id) %>
       <% if !@viewing_auctions %>
         <% auction = get_auction(item) %>
-        <% if character.owner_id == current_user.id %>
+        <% if signed_in? and character.owner_id == current_user.id %>
           <% if auction %>
           <tr>
             <td class="item-auction">
