@@ -119,7 +119,7 @@ a.signup_button  {
 
 
 /* Campaign create button, forked from above */
-a.createcampaign_button, a.createcharacter_button, .search_button, #session_submit, a.expire_button, a.buyout_button, a.bid_button {
+a.createcampaign_button, a.createcharacter_button, .search_button, #session_submit, a.expire_button, a.buyout_button, a.bid_button, .bid_submit {
   margin:5px auto 0 auto;
   display: block;
   text-align: center;
