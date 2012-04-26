@@ -1,5 +1,13 @@
+
+<div class="auction_search">
+  Search auctions by description:<br />
+  <%= render 'auctions/search' %>
+</div>
+<hr>
+
 <h1>All auctions</h1>
 
+<div class="search_results">
 <%= will_paginate %>
 
 <table class="auctions">
@@ -7,4 +15,4 @@
 </table>
 
 <%= will_paginate %>
-
+</div>
