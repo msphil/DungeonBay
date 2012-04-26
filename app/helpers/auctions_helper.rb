@@ -4,7 +4,23 @@ module AuctionsHelper
     if auction.current_bid
       return auction.current_bid.to_s + " gold"
     else
-      return "[No bids yet]"
+      if auction.open_bid
+        return auction.open_bid.to_s + " gold"
+      else
+        return "[No bids yet]"
+      end
+    end
+  end
+
+  def get_current_bid_value(auction)
+    if auction.current_bid
+      return auction.current_bid
+    else
+      if auction.open_bid
+        return auction.open_bid
+      else
+        return 0
+      end
     end
   end
 

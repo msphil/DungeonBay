@@ -6,9 +6,10 @@
 </div>
 <form action="<%= form_url %>" method="post">
   <div class="field">
-    Amount to bid: <input type="text" name="bid">
+    <% current_bid = get_current_bid_value(@auction) + 1 %>
+    Amount to bid: <input type="text" name="bid" value="<%= current_bid.to_s %>">
   </div>
   <div class="actions">
-    <input type="submit" value="Bid!">
+    <input type="submit" value="Bid!" class="bid_submit round">
   </div>
 </form>
